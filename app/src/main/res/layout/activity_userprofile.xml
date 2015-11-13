@@ -27,7 +27,7 @@
                 android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/Anonymous_user_icon"/>
+                android:src="@drawable/anonymous_user_icon"/>
 
         </RelativeLayout>
         <RelativeLayout
