@@ -19,12 +19,15 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
-                android:id="@+id/imageView" />
+                android:id="@+id/imageView"
+                android:src="@drawable/background_sample"
+                android:scaleType="fitXY"/>
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/Anonymous_user_icon"/>
 
         </RelativeLayout>
         <RelativeLayout
