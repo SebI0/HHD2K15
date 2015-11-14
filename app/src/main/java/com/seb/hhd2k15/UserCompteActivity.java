@@ -38,7 +38,7 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by Nicolas on 14/11/2015.
  */
-public class UserCompteActivity extends Activity{
+public class UserCompteActivity extends Activity {
 
     ListView list;
     private static int RESULT_LOAD_IMG = 1;
@@ -53,15 +53,15 @@ public class UserCompteActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_userprofile);
-        list = (ListView)findViewById(R.id.listView);
+        list = (ListView) findViewById(R.id.listView);
 
-        Button b = (Button)findViewById(R.id.curlTest);
+        Button b = (Button) findViewById(R.id.curlTest);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            //    Api.createUser("po", "po", "po", v.getContext());
-               // notif();
+                //    Api.createUser("po", "po", "po", v.getContext());
+                // notif();
                 loadImagefromGallery(v);
             }
         });
@@ -88,15 +88,14 @@ public class UserCompteActivity extends Activity{
         list.setAdapter(userCompteAdaptator);
     }
 
-    public void notif()
-    {
+    public void notif() {
         Intent intent = new Intent(this, NotificationReceiverActivity.class);
 // use System.currentTimeMillis() to have a unique ID for the pending intent
         PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
 
 // build notification
 // the addAction re-use the same intent to keep the example short
-        Notification n  = new Notification.Builder(this)
+        Notification n = new Notification.Builder(this)
                 .setContentTitle("New mail from " + "test@gmail.com")
                 .setContentText("Subject")
                 .setSmallIcon(R.drawable.modifier_pref_user_icon)
@@ -112,6 +111,7 @@ public class UserCompteActivity extends Activity{
 
         notificationManager.notify(0, n);
     }
+
     public void loadImagefromGallery(View view) {
         // Create intent to Open Image applications like Gallery, Google Photos
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
@@ -131,7 +131,7 @@ public class UserCompteActivity extends Activity{
                 // Get the Image from data
 
                 Uri selectedImage = data.getData();
-                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
                 // Get the cursor
                 Cursor cursor = getContentResolver().query(selectedImage,
@@ -170,7 +170,9 @@ public class UserCompteActivity extends Activity{
 
             protected void onPreExecute() {
 
-            };
+            }
+
+            ;
 
             @Override
             protected String doInBackground(Void... params) {
@@ -193,6 +195,7 @@ public class UserCompteActivity extends Activity{
 
                 // Put converted Image string into Async Http Post param
                 params.put("image", encodedString);
+                params.put("lieu", 1);
                 // Trigger Image upload
                 triggerImageUpload();
             }
@@ -219,14 +222,14 @@ public class UserCompteActivity extends Activity{
     }
 
     public void makeHTTPCall() {
-    Toast.makeText(getApplicationContext(), "UPLOAD", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "UPLOAD", Toast.LENGTH_LONG).show();
         AsyncHttpClient client = new AsyncHttpClient();
         // Don't forget to change the IP address to your LAN address. Port no as well.
         client.post("http://www.mycitizen-app.com/web/hhd/image",
                 params, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                        Toast.makeText(getApplicationContext(), responseBody.toString(),
+                        Toast.makeText(getApplicationContext(), "all good",
                                 Toast.LENGTH_LONG).show();
                     }
 
@@ -239,9 +242,9 @@ public class UserCompteActivity extends Activity{
                                     Toast.LENGTH_LONG).show();
                         }
                         // When Http response code is '500'
-                        else if (statusCode == 500) {
+                        else if (statusCode == 500 || statusCode == 400) {
                             Toast.makeText(getApplicationContext(),
-                                    "Something went wrong at server end",
+                                    "pb api",
                                     Toast.LENGTH_LONG).show();
                         }
                     }

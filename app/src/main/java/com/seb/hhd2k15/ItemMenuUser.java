@@ -28,12 +28,12 @@ public class ItemMenuUser {
         this.icon = icon;
     }
 
-    private static void creationDeToutLesItems(ArrayList<ItemMenuUser> LIST, Context c){
+    private static void creationDeToutLesItems(ArrayList<ItemMenuUser> LIST, Context c) {
         // Modifier Mon Compte
-            ItemMenuUser ModifierMonCompte = new ItemMenuUser("Modifier Mon Compte", "Ceci est la description du bouton", c.getResources().getDrawable(R.drawable.modifier_compte_user_icon));
-            LIST.add(ModifierMonCompte);
-            ItemMenuUser ModifierMesPreferances = new ItemMenuUser("Modifier Mes Pref", "Ceci est la description du bouton", c.getResources().getDrawable(R.drawable.modifier_pref_user_icon));
-            LIST.add(ModifierMesPreferances);
+        ItemMenuUser ModifierMonCompte = new ItemMenuUser("Modifier Mon Compte", "Ceci est la description du bouton", c.getResources().getDrawable(R.drawable.modifier_compte_user_icon));
+        LIST.add(ModifierMonCompte);
+        ItemMenuUser ModifierMesPreferances = new ItemMenuUser("Modifier Mes Pref", "Ceci est la description du bouton", c.getResources().getDrawable(R.drawable.modifier_pref_user_icon));
+        LIST.add(ModifierMesPreferances);
     }
 
     public String getName() {
@@ -60,7 +60,7 @@ public class ItemMenuUser {
         this.icon = icon;
     }
 
-    public static ArrayList<ItemMenuUser> getItemMenuUserList(Context context){
+    public static ArrayList<ItemMenuUser> getItemMenuUserList(Context context) {
         ArrayList<ItemMenuUser> imu = new ArrayList<ItemMenuUser>();
         creationDeToutLesItems(imu, context);
         return imu;

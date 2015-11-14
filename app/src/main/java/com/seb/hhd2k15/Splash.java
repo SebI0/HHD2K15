@@ -16,7 +16,7 @@ import com.seb.hhd2k15.Database.sqlite;
 /**
  * Created by Elie on 14/11/2015.
  */
-public class Splash extends Activity   {
+public class Splash extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
