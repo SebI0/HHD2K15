@@ -28,7 +28,7 @@ public class Tag {
         // C'est ici que les tag peuvent être ajouté
         list.add(new Tag("#Point de vue"));
         list.add(new Tag("#Romantique"));
-        list.add(new Tag("#Photographique"));
+        list.add(new Tag("#Photographie"));
         list.add(new Tag("#Culturel"));
         list.add(new Tag("#Insolite"));
         list.add(new Tag("#Marchants locaux"));
