@@ -18,17 +18,20 @@ import java.util.List;
  */
 public class UserCompteAdaptator extends ArrayAdapter<ItemMenuUser>{
 
+
+    Context context;
     public UserCompteAdaptator(Context context, List<ItemMenuUser> objects) {
         super(context, -1, objects);
+        this.context = context;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //return super.getView(position, convertView, parent);
-        View view;
-        if(convertView != null){
-            LayoutInflater layoutInflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.itemlist_userprofile, parent);
+        View view=null;
+        if(convertView == null){
+            LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = layoutInflater.inflate(R.layout.itemlist_userprofile, null);
         }
         else
             view = convertView;
