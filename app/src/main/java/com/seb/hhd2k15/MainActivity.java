@@ -30,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_userprofile);
 
 
-
     }
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> bdd34442a974d1a3dce49026d2fcf6bf7adf5904
 }

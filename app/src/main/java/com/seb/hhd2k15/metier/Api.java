@@ -19,8 +19,7 @@ import java.util.Map;
  * Created by Sébastien on 14/11/2015.
  */
 public class Api {
-    public static void createUser(String email, String login, String password, Context c)
-    {
+    public static void createUser(String email, String login, String password, Context c) {
         String url = "http://www.mycitizen-app.com/web/hhd/user";
 
         Map<String, String> params = new HashMap<String, String>();
@@ -35,25 +34,21 @@ public class Api {
                         try {
                             Log.d("RES", response.toString());
                             String feedback = response.getString("feedback");
-                            if (feedback == "success")
-                            {
+                            if (feedback == "success") {
 
-                            }else{
+                            } else {
 
                             }
 
-                        }catch (Exception e)
-                        {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
 
                     }
                 },
-                new Response.ErrorListener()
-                {
+                new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
+                    public void onErrorResponse(VolleyError error) {
 
                     }
 
@@ -61,8 +56,8 @@ public class Api {
 
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("Content-Type","application/json");
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/json");
                 return params;
             }
         };

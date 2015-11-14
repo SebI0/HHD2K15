@@ -13,9 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.seb.hhd2k15.R;
 import com.seb.hhd2k15.ScreenSlidePageFragment;
+import com.seb.hhd2k15.metier.Commentaire;
+import com.seb.hhd2k15.metier.CommentaireAdaptator;
 
 import java.util.ArrayList;
 
@@ -33,14 +36,19 @@ public class LieuActivity extends FragmentActivity {
 
     private LinearLayout carousel;
     private ListView list;
+    private ListView listc;
+    private RelativeLayout RL;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_lieu);
         list = (ListView) findViewById(R.id.List_Tag);
+        listc = (ListView) findViewById(R.id.list_Item_Commentaires);
+        RL = (RelativeLayout) findViewById(R.id.Layout_Tag);
         mPager = (ViewPager) findViewById(R.id.pagers);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+        //listc.addHeaderView(RL);
     }
 
 
@@ -80,8 +88,13 @@ public class LieuActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         ArrayList<Tag> list_t =Tag.getListTag();
         LieuAdaptator lieuAdaptator = new LieuAdaptator(this, list_t);
         list.setAdapter(lieuAdaptator);
+
+        ArrayList<Commentaire> list_c = Commentaire.getListTag(this);
+        CommentaireAdaptator commentaireAdaptator = new CommentaireAdaptator((this), list_c);
+        listc.setAdapter(commentaireAdaptator);
     }
 }
