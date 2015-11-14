@@ -72,10 +72,12 @@ public class UserCompteActivity extends Activity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0: //Modifier le compte
+                        Intent i = new Intent(UserCompteActivity.this,MainActivity.class);
+
                         //Intend intend = new Intent(YourActivityName.this, MainActivity.class);
-                       // intend.addFlags(Intend.FLAG_ACTIVITY_CLEAR_TOP);
-                       // intend.addFlags(Intend.FLAG_ACTIVITY8NEW_TASK);
-                       // startActivity(intend);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                       startActivity(i);
                         break;
                     case 1: //Modifier les pantalons
                         break;
