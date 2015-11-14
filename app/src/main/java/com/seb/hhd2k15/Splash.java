@@ -37,6 +37,7 @@ public class Splash extends Activity   {
                 //    }
                 //
                 }
+                
             db.ListTagDB(database);
            db.updateUserTag(database,t);
             db.ListTagDB(database);
