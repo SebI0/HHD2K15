@@ -21,7 +21,8 @@
                 android:layout_height="170dp"
                 android:id="@+id/imageView"
                 android:src="@drawable/background_sample"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                android:adjustViewBounds="false" />
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"

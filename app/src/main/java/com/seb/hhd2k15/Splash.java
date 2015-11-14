@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.seb.hhd2k15.Location.Locator;
+
 import com.seb.hhd2k15.Database.ItemDatabase.TagDB;
 import com.seb.hhd2k15.Database.sqlite;
 
@@ -19,6 +21,7 @@ public class Splash extends Activity   {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+
 
         /*
 
