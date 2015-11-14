@@ -17,6 +17,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
+
 /**
  * A fragment that launches other parts of the demo application.
  */
@@ -100,11 +102,16 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        if(marker.getTitle().equals("MA BITE") ){
-            Toast.makeText(this.getContext(), "ELLE EST GROSSE", Toast.LENGTH_LONG).show();
-            return true;
-        }
-    return false;
+        Toast.makeText(this.getContext(), marker.getTitle(), Toast.LENGTH_LONG).show();
+        return true;
+    }
 
+    public void UpdateMapWithRequest(List<poi> liste){
+
+        for(poi p : liste){
+                MarkerOptions m = new MarkerOptions().position(
+                    new LatLng(p.getLat(), p.getLng())).title(p.getTitle()).icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
+                googleMap.addMarker(m);
+        }
     }
 }
