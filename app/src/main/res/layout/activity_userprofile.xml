@@ -8,14 +8,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
 
-        
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            >
+            android:id="@+id/topBarEditAccount">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -51,22 +51,48 @@
                 android:layout_alignStart="@+id/imageView2" />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="32dp"
+            android:id="@+id/MiddleBarEditTracking">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <Switch
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Activer le tracking"
+                    android:id="@+id/SwitchTracking"
+                    android:checked="false"
+                    android:layout_alignParentTop="true"
+                    android:nestedScrollingEnabled="false"
+                    android:onClick="SwitchGPSChanged"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="263dp"
             >
 
             <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/listView"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="5dp" />
-
+                android:layout_below="@+id/SwitchTracking"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
-       
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></RelativeLayout>
+
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

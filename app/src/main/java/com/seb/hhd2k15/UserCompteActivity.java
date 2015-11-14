@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -71,6 +72,10 @@ public class UserCompteActivity extends Activity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0: //Modifier le compte
+                        //Intend intend = new Intent(YourActivityName.this, MainActivity.class);
+                       // intend.addFlags(Intend.FLAG_ACTIVITY_CLEAR_TOP);
+                       // intend.addFlags(Intend.FLAG_ACTIVITY8NEW_TASK);
+                       // startActivity(intend);
                         break;
                     case 1: //Modifier les pantalons
                         break;
@@ -79,14 +84,26 @@ public class UserCompteActivity extends Activity{
             }
         });
     }
+    public void SwitchGPSChanged(View v){
+        Switch swch = (Switch) v;
+        if(((Switch) v).isChecked()){
+            swch.setText("Désactiver le tracking");
+            Toast.makeText(getApplicationContext(),"Vous pourrez désormais être notifié par l'application",Toast.LENGTH_LONG).show();
+        }
+        else{
+            swch.setText("Activer le tracking");
+            Toast.makeText(getApplicationContext(),"Vous ne serez plus notifié par l'application ",Toast.LENGTH_LONG).show();
+
+        }
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
-        ArrayList<ItemMenuUser> Item_Menu_User_List = ItemMenuUser.getItemMenuUserList(this);
-        UserCompteAdaptator userCompteAdaptator = new UserCompteAdaptator(this, Item_Menu_User_List);
-        list.setAdapter(userCompteAdaptator);
-    }
+    ArrayList<ItemMenuUser> Item_Menu_User_List = ItemMenuUser.getItemMenuUserList(this);
+    UserCompteAdaptator userCompteAdaptator = new UserCompteAdaptator(this, Item_Menu_User_List);
+    list.setAdapter(userCompteAdaptator);
+}
 
     public void notif()
     {
