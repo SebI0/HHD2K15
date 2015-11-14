@@ -64,5 +64,45 @@ public class Api {
         NetworkSingleton.getInstance(c).addToRequestQueue(jsObjRequest);
     }
 
+    public static void getPoi(Context c) {
+        String url = "https://data.ozwillo-preprod.eu:443/dc/type/hackartisme:geoService_0?start=0&limit=10";
+        String p = "&hackartisme:latitude=>50.510000&hackartisme:latitude=<50.519000&hackartisme:longitude=>1.592700&hackartisme:longitude<1.593200";
+
+        url = url + p;
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Log.e("RES", response.toString());
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                }) {
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/json");
+                params.put("Authorization",  "Bearer eyJpZCI6ImJhNTExYzdiLTk5MDUtNDQwNy1iMjg4LTEwNTI2MDRjNjE4MC9SejJPTlFVTWhVY29tcFFCX2Q5bERRIiwiaWF0IjoxNDQ3MzQyODgxOTM5LCJleHAiOjE0NDc2NzE2MDAwMDB9Cg");
+                return params;
+            }
+        };
+        NetworkSingleton.getInstance(c).addToRequestQueue(jsObjRequest);
+    }
+
+
 
 }
