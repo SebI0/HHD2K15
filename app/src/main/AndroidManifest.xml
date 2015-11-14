@@ -35,6 +35,13 @@
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme" >
         </activity>
+
+
+        <activity
+            android:name=".UserPrefActivity">
+
+        </activity>
+
     </application>
 
 </manifest>

@@ -1,21 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/LinearLayoutEditAccount">
+    android:id="@+id/LinearLayoutEditAccount"
+    android:weightSum="1"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView3" />
+        android:text="Enregistrer les modifications"
+        android:id="@+id/SauvegardePréférence"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingEnd="0dp"
+        android:paddingStart="0dp"
+        android:onClick="close"
+        android:nestedScrollingEnabled="true"
+        android:singleLine="true" />
 
-    <Switch
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="28dp"></RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Désactivé"
-        android:id="@+id/switch1"
-        android:layout_gravity="right"
-        android:checked="false" />
+        android:layout_weight="0.04">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Préférences"
+            android:id="@+id/textView3"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="445dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Point de vue"
+                android:id="@+id/switch1"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="true"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_marginTop="15dp"
+                android:allowUndo="false" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Romantique"
+                android:id="@+id/switch2"
+                android:layout_below="@+id/switch1"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="true"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_marginTop="15dp"
+                android:allowUndo="false" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Photographie"
+                android:id="@+id/Switch3"
+                android:layout_below="@+id/switch2"
+                android:layout_centerHorizontal="true"
+                android:checked="false"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_marginTop="15dp"
+                android:allowUndo="false" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Culturel"
+                android:id="@+id/Switch4"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/Switch4"
+                android:layout_centerHorizontal="true"
+                android:checked="false"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_marginTop="15dp"
+                android:allowUndo="false" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Insolite"
+                android:id="@+id/Switch6"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/Switch6"
+                android:layout_alignLeft="@+id/Switch4"
+                android:checked="true"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_marginTop="15dp"
+                android:allowUndo="false" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Marchants locaux"
+                android:id="@+id/switch7"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/Switch6"
+                android:layout_alignLeft="@+id/Switch4"
+                android:layout_gravity="center_horizontal"
+                android:checked="false"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_marginTop="15dp"
+                android:allowUndo="false" />
+
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Événements"
+                android:id="@+id/switch3"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/Switch6"
+                android:layout_alignLeft="@+id/Switch4"
+                android:checked="true"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_marginTop="15dp"
+                android:allowUndo="false" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
 </LinearLayout>

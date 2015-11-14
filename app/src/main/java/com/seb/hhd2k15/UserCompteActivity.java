@@ -70,16 +70,23 @@ public class UserCompteActivity extends Activity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i ;
                 switch (position) {
                     case 0: //Modifier le compte
-                        Intent i = new Intent(UserCompteActivity.this,MainActivity.class);
+                        i = new Intent(UserCompteActivity.this,MainActivity.class);
 
                         //Intend intend = new Intent(YourActivityName.this, MainActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                        startActivity(i);
                         break;
-                    case 1: //Modifier les pantalons
+                    case 1:
+                        i = new Intent(UserCompteActivity.this,UserPrefActivity.class);
+
+                        //Intend intend = new Intent(YourActivityName.this, MainActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
                         break;
                 }
 
