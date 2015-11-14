@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Switch;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -32,4 +33,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> bdd34442a974d1a3dce49026d2fcf6bf7adf5904
 }

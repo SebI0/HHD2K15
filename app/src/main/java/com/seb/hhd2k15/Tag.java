@@ -26,9 +26,9 @@ public class Tag {
     public static ArrayList<Tag> getListTag(){
         ArrayList<Tag> list = new ArrayList<Tag>();
         // C'est ici que les tag peuvent être ajouté
-        list.add(new Tag("#yolo"));
-        list.add(new Tag("#yolo"));
-        list.add(new Tag("#yolo"));
+        list.add(new Tag("#Point de vue"));
+        list.add(new Tag("#Romantique"));
+        list.add(new Tag("#Photographique"));
         list.add(new Tag("#yolo"));
         list.add(new Tag("#yolo"));
         list.add(new Tag("#yolo"));
