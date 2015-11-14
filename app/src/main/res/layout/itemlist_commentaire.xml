@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/userIcon_commentaire"
+            android:src="@drawable/anonymous_user_icon"
+            android:layout_marginLeft="15dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Nom_commentaire"
+                android:text="NOM UTILISATEUR"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="10dp"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Description_commentaire"
+            android:layout_marginLeft="10dp"
+            android:textSize="17dp"
+            android:text="      Ceci est un commentaire d'un utilisateur il peut être long cela ne posera pas de soucis"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
