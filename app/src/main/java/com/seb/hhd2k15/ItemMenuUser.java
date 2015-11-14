@@ -30,10 +30,16 @@ public class ItemMenuUser {
 
     private static void creationDeToutLesItems(ArrayList<ItemMenuUser> LIST, Context c) {
         // Modifier Mon Compte
-        ItemMenuUser ModifierMonCompte = new ItemMenuUser("Modifier Mon Compte", "Ceci est la description du bouton", c.getResources().getDrawable(R.drawable.modifier_compte_user_icon));
+        ItemMenuUser ModifierMonCompte = new ItemMenuUser("Mon compte", "Visualisez et modifier les différentes informations lié a votre compte utilisateur.", c.getResources().getDrawable(R.drawable.modifier_compte_user_icon));
         LIST.add(ModifierMonCompte);
-        ItemMenuUser ModifierMesPreferances = new ItemMenuUser("Modifier Mes Pref", "Ceci est la description du bouton", c.getResources().getDrawable(R.drawable.modifier_pref_user_icon));
+        ItemMenuUser ModifierMesPreferances = new ItemMenuUser("Préférences", "Selectionez vos préférences de notifications.", c.getResources().getDrawable(R.drawable.modifier_pref_user_icon));
         LIST.add(ModifierMesPreferances);
+        ItemMenuUser Help = new ItemMenuUser("Aide et support", "FAQ, support technique et plus.", c.getResources().getDrawable(R.drawable.modifier_pref_user_icon));
+        LIST.add(Help);
+        ItemMenuUser Feedback = new ItemMenuUser("Feedback", "Remontez nous vos retours d'expérience afin d'améliorer Instinct.", c.getResources().getDrawable(R.drawable.modifier_pref_user_icon));
+        LIST.add(Feedback);
+        ItemMenuUser Logout= new ItemMenuUser("Deconnexion", "Si vous souhaitez nous quitter quelques temps....", c.getResources().getDrawable(R.drawable.modifier_pref_user_icon));
+        LIST.add(Logout);
     }
 
     public String getName() {

@@ -14,7 +14,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="220dp"
             android:id="@+id/topBarEditAccount">
 
             <ImageView
@@ -23,38 +23,57 @@
                 android:id="@+id/imgView"
                 android:src="@drawable/background_sample"
                 android:scaleType="fitXY"
-                android:adjustViewBounds="false" />
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/anonymous_user_icon"
-                android:id="@+id/imageView2" />
+                android:adjustViewBounds="false"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/curlTest"
-                android:layout_above="@+id/imageView2"
-                android:layout_toRightOf="@+id/imageView2"
-                android:layout_toEndOf="@+id/imageView2" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/curlTest">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/button"
-                android:layout_above="@+id/curlTest"
-                android:layout_alignLeft="@+id/imageView2"
-                android:layout_alignStart="@+id/imageView2" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/curlTest"
+                    android:layout_alignBottom="@+id/imageView2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Button"
+                    android:id="@+id/button"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignLeft="@+id/curlTest"
+                    android:layout_alignStart="@+id/curlTest"
+                    android:layout_marginTop="28dp" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/profile_seb"
+                    android:id="@+id/imageView2"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ProfilePicCadre"
+                    android:background="@drawable/profilepic"
+                    android:layout_alignTop="@+id/imageView2"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+            </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="71dp"
             android:id="@+id/MiddleBarEditTracking">
 
             <RelativeLayout
@@ -67,19 +86,20 @@
                     android:text="Activer le tracking"
                     android:id="@+id/SwitchTracking"
                     android:checked="false"
-                    android:layout_alignParentTop="true"
                     android:nestedScrollingEnabled="false"
                     android:onClick="SwitchGPSChanged"
                     android:paddingLeft="15dp"
-                    android:paddingRight="15dp" />
+                    android:paddingRight="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
             </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="263dp"
-            >
+            android:layout_height="match_parent">
 
             <ListView
                 android:layout_width="wrap_content"
@@ -89,10 +109,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
         </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></RelativeLayout>
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

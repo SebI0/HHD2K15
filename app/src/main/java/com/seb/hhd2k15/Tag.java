@@ -29,10 +29,10 @@ public class Tag {
         list.add(new Tag("#Point de vue"));
         list.add(new Tag("#Romantique"));
         list.add(new Tag("#Photographique"));
-        list.add(new Tag("#yolo"));
-        list.add(new Tag("#yolo"));
-        list.add(new Tag("#yolo"));
-        list.add(new Tag("#yolo"));
+        list.add(new Tag("#Culturel"));
+        list.add(new Tag("#Insolite"));
+        list.add(new Tag("#Marchants locaux"));
+        list.add(new Tag("#Événément"));
 
 
         return list;

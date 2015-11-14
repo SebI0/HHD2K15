@@ -31,12 +31,4 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> bdd34442a974d1a3dce49026d2fcf6bf7adf5904
 }
