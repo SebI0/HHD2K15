@@ -47,16 +47,17 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
         double latitude = 50.519062;
         double longitude = 1.592887;
 
+        double latitude2 = 50.433131;
+        double longitude2= 2.823999;
         googleMap.setOnMarkerClickListener(this);
 
         // create marker
         MarkerOptions marker = new MarkerOptions().position(
                 new LatLng(latitude, longitude)).title("MA BITE");
-
+        MarkerOptions marker2 = new MarkerOptions().position(new LatLng(latitude2,longitude2)).title("Poudlard");
 
         // Changing marker icon
-        marker.icon(BitmapDescriptorFactory
-                .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2)); marker2.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
 
         //SetListener On a marker
 
@@ -64,11 +65,11 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
         // adding marker
         googleMap.addMarker(marker);
+        googleMap.addMarker(marker2);
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(latitude, longitude)).zoom(12).build();
         googleMap.animateCamera(CameraUpdateFactory
                 .newCameraPosition(cameraPosition));
-
         // Perform any camera updates here
         return v;
     }
@@ -99,7 +100,7 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        if(marker.getTitle() == "MA BITE"){
+        if(marker.getTitle().equals("MA BITE") ){
             Toast.makeText(this.getContext(), "ELLE EST GROSSE", Toast.LENGTH_LONG).show();
             return true;
         }
