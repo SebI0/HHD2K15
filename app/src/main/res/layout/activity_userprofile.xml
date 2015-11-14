@@ -16,12 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             >
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
-                android:id="@+id/imageView"
+                android:id="@+id/imgView"
                 android:src="@drawable/background_sample"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                android:adjustViewBounds="false" />
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -38,6 +40,15 @@
                 android:layout_above="@+id/imageView2"
                 android:layout_toRightOf="@+id/imageView2"
                 android:layout_toEndOf="@+id/imageView2" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button"
+                android:layout_above="@+id/curlTest"
+                android:layout_alignLeft="@+id/imageView2"
+                android:layout_alignStart="@+id/imageView2" />
 
         </RelativeLayout>
         <RelativeLayout
