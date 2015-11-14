@@ -30,11 +30,10 @@ public class ItemMenuUser {
 
     private static void creationDeToutLesItems(ArrayList<ItemMenuUser> LIST, Context c){
         // Modifier Mon Compte
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            ItemMenuUser ModifierMonCompte = new ItemMenuUser("Modifier Mon Compte", "Ceci est la description du bouton", c.getDrawable(R.drawable.modifier_compte_user_icon));
+            ItemMenuUser ModifierMonCompte = new ItemMenuUser("Modifier Mon Compte", "Ceci est la description du bouton", c.getResources().getDrawable(R.drawable.modifier_compte_user_icon));
             LIST.add(ModifierMonCompte);
-        }
-
+            ItemMenuUser ModifierMesPreferances = new ItemMenuUser("Modifier Mes Pref", "Ceci est la description du bouton", c.getResources().getDrawable(R.drawable.modifier_pref_user_icon));
+            LIST.add(ModifierMesPreferances);
     }
 
     public String getName() {
