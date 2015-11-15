@@ -58,7 +58,9 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
         // create marker
         MarkerOptions marker = new MarkerOptions().position(
-                new LatLng(latitude, longitude)).title("MA BITE").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
+                new LatLng(latitude, longitude)).title("MA BITE");
+
+        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
         MarkerOptions marker2 = new MarkerOptions().position(new LatLng(latitude2, longitude2)).title("Poudlard").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
 
 

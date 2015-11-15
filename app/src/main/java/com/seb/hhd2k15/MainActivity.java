@@ -1,10 +1,9 @@
 package com.seb.hhd2k15;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -19,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        CustomFont();
     }
 
     /**
@@ -103,6 +105,18 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public void CustomFont(){
+        Typeface font = Typeface.createFromAsset(getAssets(),"fonts/font.ttf");
+        TextView t1 = (TextView) findViewById(R.id.Hello);
+        TextView t2 = (TextView) findViewById(R.id.stats);
+        t1.setTypeface(font);
+        t2.setTypeface(font);
+
+        t1.setText("Bonjour Nico385412");
+        t2.setText("Vous avez decouvert 5 lieux");
+
+
+    }
 
     @Override
     protected void onResume() {
