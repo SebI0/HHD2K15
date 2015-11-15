@@ -147,10 +147,10 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
         lieuIntent.putExtra(NAME_LIEU, marker.getTitle());
         Log.i("MAP", marker.getTitle());
         if (marker.getTitle().equals("Happy H#cking Days")) {
-            lieuIntent.putExtra(IMG_1, R.drawable.profile_seb);
+            lieuIntent.putExtra(IMG_1, R.drawable.background_sample);
         }
         else
-            lieuIntent.putExtra(IMG_1, R.drawable.hearts);
+            lieuIntent.putExtra(IMG_1, R.drawable.background_sample);
 
         startActivity(lieuIntent);
 

@@ -33,6 +33,9 @@ public class MyGcmListenerService extends GcmListenerService {
 
     private static final String TAG = "MyGcmListenerService";
 
+    final String NAME_LIEU = "name_lieu";
+    final String IMG_1 = "image_lieu";
+
     /**
      * Called when message is received.
      *
@@ -78,8 +81,16 @@ public class MyGcmListenerService extends GcmListenerService {
      */
     private void sendNotification(String title, String message) {
         Intent intent = new Intent(this, MainActivity.class);
+        Intent intentLieu = new Intent(this, LieuActivity.class);
+        intentLieu.putExtra(NAME_LIEU, "Eglise Sainte Jeanne d'Arc");
+        intentLieu.putExtra(IMG_1, R.drawable.eglise);
+
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
+
+        PendingIntent pendingIntentHome = PendingIntent.getActivity(this, 0 /* Request code */, intent,
+                PendingIntent.FLAG_ONE_SHOT);
+
+        PendingIntent pendingIntentLieu = PendingIntent.getActivity(this, 0 /* Request code */, intentLieu,
                 PendingIntent.FLAG_ONE_SHOT);
 
       /*  Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -92,6 +103,10 @@ public class MyGcmListenerService extends GcmListenerService {
                 .setContentIntent(pendingIntent);*/
 
         // Constructs the Builder object.
+
+        Intent lieuIntent = new Intent(this, LieuActivity.class);
+
+
         Notification n =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.icon)
@@ -100,8 +115,8 @@ public class MyGcmListenerService extends GcmListenerService {
                         .setDefaults(Notification.DEFAULT_ALL) // requires VIBRATE permission
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(message))
-                        .addAction(R.drawable.cast_ic_notification_0, "Ignorer", pendingIntent)
-                        .addAction(R.drawable.cast_ic_notification_on, "Y aller", pendingIntent).build();
+                        .addAction(R.drawable.cast_ic_notification_0, "Ignorer", pendingIntentHome)
+                        .addAction(R.drawable.cast_ic_notification_on, "Y aller", pendingIntentLieu).build();
 
 
 
