@@ -50,6 +50,7 @@ public class MenuItem {
         // ce fait avec la variable position, si position ==0 c'est le premier Item ici la carte qui sera lancé etc ....)
         // Bon COURAGE ZZZZZZZZZzzzzzzz
         imu.add(new MenuItem(context.getResources().getDrawable(R.drawable.world), "Carte"));
-
+        imu.add(new MenuItem(context.getResources().getDrawable(R.drawable.profile_seb), "Mon Compte"));
+        imu.add(new MenuItem(context.getResources().getDrawable(R.drawable.profile_seb), "Mes lieux"));
     }
 }

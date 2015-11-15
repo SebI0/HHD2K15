@@ -1,7 +1,11 @@
 package com.seb.hhd2k15 ;  // change to your own package
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,26 +60,44 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
         googleMap.setOnMarkerClickListener(this);
 
-        // create marker
-        MarkerOptions marker = new MarkerOptions().position(
-                new LatLng(latitude, longitude)).title("MA BITE");
+        if (ContextCompat.checkSelfPermission(this.getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            googleMap.setMyLocationEnabled(true);
+        } else {
+            // Show rationale and request permission.
+        }
 
-        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
+
+        googleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+
+            @Override
+            public void onMyLocationChange(Location location) {
+                LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
+                MarkerOptions marker = new MarkerOptions().position(loc).title("Vous êtes ici");
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(new LatLng(loc.latitude, loc.longitude)).zoom(12).build();
+                googleMap.animateCamera(CameraUpdateFactory
+                        .newCameraPosition(cameraPosition));
+                googleMap.addMarker(marker);
+            }
+        });
+
+        // create marker
+        //MarkerOptions marker = new MarkerOptions().position(//
+
+        //marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
         MarkerOptions marker2 = new MarkerOptions().position(new LatLng(latitude2, longitude2)).title("Poudlard").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
 
 
         // Changing marker icon
-        marker.icon(BitmapDescriptorFactory
-                .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+       // marker.icon(BitmapDescriptorFactory
+                //.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
 
 
         // adding marker
-        googleMap.addMarker(marker);
+        //googleMap.addMarker(marker);
         googleMap.addMarker(marker2);
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(new LatLng(latitude, longitude)).zoom(12).build();
-        googleMap.animateCamera(CameraUpdateFactory
-                .newCameraPosition(cameraPosition));
+
 
         // Perform any camera updates here
         return v;
