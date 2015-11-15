@@ -34,6 +34,8 @@ public class LieuActivity extends FragmentActivity {
     private static final int NUM_PAGES = 3;
     final String NAME_LIEU = "name_lieu";
     final String IMG_1 = "image_lieu";
+    final String IMG_2 = "image_lieu_2";
+    final String IMG_3 = "image_lieu_3";
 
     private ViewPager mPager;
 
@@ -89,9 +91,9 @@ public class LieuActivity extends FragmentActivity {
                 return ScreenSlidePageFragment.newInstance(intent.getIntExtra(IMG_1, 0));
             }
                 if(position == 1)
-                return ScreenSlidePageFragment.newInstance(R.drawable.anonymous_user_icon);
+                    return ScreenSlidePageFragment.newInstance(intent.getIntExtra(IMG_2, 0));
             else
-                return ScreenSlidePageFragment.newInstance(R.drawable.background_sample);
+                    return ScreenSlidePageFragment.newInstance(intent.getIntExtra(IMG_3, 0));
         }
 
         @Override

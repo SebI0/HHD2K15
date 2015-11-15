@@ -42,6 +42,8 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
     final String NAME_LIEU = "name_lieu";
     final String IMG_1 = "image_lieu";
+    final String IMG_2 = "image_lieu_2";
+    final String IMG_3 = "image_lieu_3";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -147,10 +149,14 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
         lieuIntent.putExtra(NAME_LIEU, marker.getTitle());
         Log.i("MAP", marker.getTitle());
         if (marker.getTitle().equals("Happy H#cking Days")) {
-            lieuIntent.putExtra(IMG_1, R.drawable.background_sample);
+            lieuIntent.putExtra(IMG_1, R.drawable.hhd);
+            lieuIntent.putExtra(IMG_2, R.drawable.bar);
+            lieuIntent.putExtra(IMG_3, R.drawable.code);
         }
         else
-            lieuIntent.putExtra(IMG_1, R.drawable.background_sample);
+            lieuIntent.putExtra(IMG_1, R.drawable.chemin);
+            lieuIntent.putExtra(IMG_2, R.drawable.background_sample);
+            lieuIntent.putExtra(IMG_3, R.drawable.mer);
 
         startActivity(lieuIntent);
 
@@ -165,6 +171,7 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
         poi p2 = new poi("Maréis", 50.518582, 1.630492);
         poi p3 = new poi("Sentier près de la côte", 50.528537, 1.581504);
         poi p4 = new poi("Happy H#cking Days", 50.519062, 1.592887);
+        poi p5 = new poi("Eglise Jeanne d'Arc", 50.520458, 1.586851);
 
 
         ArrayList<poi> poiList = new ArrayList<poi>();
@@ -172,6 +179,7 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
         poiList.add(p2);
         poiList.add(p3);
         poiList.add(p4);
+        poiList.add(p5);
 
         UpdateMapWithRequest(poiList);
     }
