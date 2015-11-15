@@ -51,6 +51,6 @@ public class MenuItem {
         // Bon COURAGE ZZZZZZZZZzzzzzzz
         imu.add(new MenuItem(context.getResources().getDrawable(R.drawable.world), "Carte"));
         imu.add(new MenuItem(context.getResources().getDrawable(R.drawable.profile_seb), "Mon Compte"));
-        imu.add(new MenuItem(context.getResources().getDrawable(R.drawable.profile_seb), "Mes lieux"));
+        imu.add(new MenuItem(context.getResources().getDrawable(R.drawable.menu_location), "Mes lieux"));
     }
 }
