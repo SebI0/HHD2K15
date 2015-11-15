@@ -10,6 +10,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -32,6 +33,7 @@ public class LieuActivity extends FragmentActivity {
 
     private static final int NUM_PAGES = 3;
     final String NAME_LIEU = "name_lieu";
+    final String IMG_1 = "image_lieu";
 
     private ViewPager mPager;
 
@@ -43,6 +45,7 @@ public class LieuActivity extends FragmentActivity {
     private RelativeLayout RL;
 
     private TextView lieu_name;
+    private Intent intent;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +59,7 @@ public class LieuActivity extends FragmentActivity {
 
         lieu_name = (TextView)findViewById(R.id.lieu_name);
 
-        Intent intent = getIntent();
+         intent = getIntent();
 
         lieu_name.setText(intent.getStringExtra(NAME_LIEU));
         //listc.addHeaderView(RL);
@@ -82,9 +85,10 @@ public class LieuActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if(position == 0)
-                return ScreenSlidePageFragment.newInstance(R.drawable.background_sample);
-            if(position == 1)
+            if(position == 0) {
+                return ScreenSlidePageFragment.newInstance(intent.getIntExtra(IMG_1, 0));
+            }
+                if(position == 1)
                 return ScreenSlidePageFragment.newInstance(R.drawable.anonymous_user_icon);
             else
                 return ScreenSlidePageFragment.newInstance(R.drawable.background_sample);
