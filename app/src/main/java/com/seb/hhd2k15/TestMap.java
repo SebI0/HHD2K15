@@ -2,10 +2,15 @@ package com.seb.hhd2k15;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -21,6 +26,8 @@ public class TestMap extends FragmentActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.testmap);
         addMapFragment();
+
+
     }
 
     private void addMapFragment() {
