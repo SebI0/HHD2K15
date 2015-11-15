@@ -9,7 +9,7 @@ public class poi {
     private double lng;
     private double lat;
 
-    public poi(String title, double lng, double lat) {
+    public poi(String title, double lat, double lng) {
         this.title = title;
         this.lng = lng;
         this.lat = lat;
