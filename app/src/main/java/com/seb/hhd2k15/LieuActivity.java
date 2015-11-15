@@ -2,6 +2,7 @@ package com.seb.hhd2k15;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.seb.hhd2k15.R;
 import com.seb.hhd2k15.ScreenSlidePageFragment;
@@ -29,6 +31,7 @@ public class LieuActivity extends FragmentActivity {
 
 
     private static final int NUM_PAGES = 3;
+    final String NAME_LIEU = "name_lieu";
 
     private ViewPager mPager;
 
@@ -39,6 +42,8 @@ public class LieuActivity extends FragmentActivity {
     private ListView listc;
     private RelativeLayout RL;
 
+    private TextView lieu_name;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_lieu);
@@ -48,6 +53,12 @@ public class LieuActivity extends FragmentActivity {
         mPager = (ViewPager) findViewById(R.id.pagers);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+        lieu_name = (TextView)findViewById(R.id.lieu_name);
+
+        Intent intent = getIntent();
+
+        lieu_name.setText(intent.getStringExtra(NAME_LIEU));
         //listc.addHeaderView(RL);
     }
 
