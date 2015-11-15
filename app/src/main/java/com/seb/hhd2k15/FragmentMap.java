@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,7 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
     private GoogleMap googleMap;
 
     final String NAME_LIEU = "name_lieu";
+    final String IMG_1 = "image_lieu";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -143,6 +145,13 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
         Intent lieuIntent;
         lieuIntent = new Intent(this.getContext(), LieuActivity.class);
         lieuIntent.putExtra(NAME_LIEU, marker.getTitle());
+        Log.i("MAP", marker.getTitle());
+        if (marker.getTitle().equals("Happy H#cking Days")) {
+            lieuIntent.putExtra(IMG_1, R.drawable.profile_seb);
+        }
+        else
+            lieuIntent.putExtra(IMG_1, R.drawable.hearts);
+
         startActivity(lieuIntent);
 
         Toast.makeText(this.getContext(), marker.getTitle(), Toast.LENGTH_SHORT).show();
