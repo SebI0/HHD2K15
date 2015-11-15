@@ -16,6 +16,7 @@
 
 package com.seb.hhd2k15;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -80,18 +81,35 @@ public class MyGcmListenerService extends GcmListenerService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
-        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+      /*  Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.profile_seb)
                 .setContentTitle("GCM Message")
                 .setContentText(message)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent);*/
+
+        Notification n = new Notification.Builder(this)
+                .setContentTitle("Instinct")
+                .setContentText(message)
+                .setSmallIcon(R.drawable.icon)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+                .addAction(R.drawable.cast_ic_notification_0, "Ignorer", pendingIntent)
+                .addAction(R.drawable.cast_ic_notification_1, "Y aller", pendingIntent).build();
+
+        n.sound = Uri.parse("android.resource://"
+                + this.getPackageName() + "/" + R.raw.sif);
 
         NotificationManager notificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+        notificationManager.notify(0, n);
+
+    /*    NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);*/
+
+      //  notificationManager.notify(0 /* ID of notification */,notificationBuilder.build());
     }
 }
