@@ -53,6 +53,7 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
         double latitude2 = 50.433131;
         double longitude2 = 2.823999;
+
         googleMap.setOnMarkerClickListener(this);
 
         // create marker
@@ -64,8 +65,6 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
         // Changing marker icon
         marker.icon(BitmapDescriptorFactory
                 .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
-
-        //SetListener On a marker
 
 
         // adding marker

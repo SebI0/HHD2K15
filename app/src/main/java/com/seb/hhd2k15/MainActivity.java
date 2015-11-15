@@ -1,34 +1,53 @@
 package com.seb.hhd2k15;
 
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.Switch;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import java.util.ArrayList;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+public class MainActivity extends ActionBarActivity {
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class MainActivity extends AppCompatActivity {
-
+    ListView listDrawer;
+    DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_userprofile);
+        setContentView(R.layout.activity_main);
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        listDrawer = (ListView)findViewById(R.id.navList);
+
+        listDrawer.setOnItemClickListener(new OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position==0){
+                    Intent intent = new Intent(MainActivity.this, TestMap.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            }
+        });
+    }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        ArrayList<com.seb.hhd2k15.metier.MenuItem> list_t = com.seb.hhd2k15.metier.MenuItem.getItemMenuUserList(this);
+        MenuItemAdaptator lieuAdaptator = new MenuItemAdaptator(this, list_t);
+        listDrawer.setAdapter(lieuAdaptator);
     }
 }
