@@ -45,6 +45,11 @@ public class MenuItem {
     }
 
     private static void creationDeToutLesItems(ArrayList<MenuItem> imu, Context context) {
+
+        //C 'EST ICI QUE L'ON RAJOUTE LES MENUS (IL FAUt ENSUITE ECRIRE DANS LE ITEM LISTVIEW (DANS LA CLASSE MAIN ACTIVITY la detection
+        // ce fait avec la variable position, si position ==0 c'est le premier Item ici la carte qui sera lancé etc ....)
+        // Bon COURAGE ZZZZZZZZZzzzzzzz
         imu.add(new MenuItem(context.getResources().getDrawable(R.drawable.world), "Carte"));
+
     }
 }
