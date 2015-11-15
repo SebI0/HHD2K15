@@ -2,8 +2,11 @@ package com.seb.hhd2k15;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +17,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -42,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i(TAG, "begin v1");
+        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.parseColor("#a9764b"));
+        }
+
 
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -106,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CustomFont(){
-        Typeface font = Typeface.createFromAsset(getAssets(),"fonts/font.ttf");
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/font.ttf");
         TextView t1 = (TextView) findViewById(R.id.Hello);
         TextView t2 = (TextView) findViewById(R.id.stats);
         t1.setTypeface(font);
