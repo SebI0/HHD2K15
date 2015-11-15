@@ -141,7 +141,8 @@
                     android:text="Commentaires"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:textSize="30dp"/>
+                    android:textSize="30dp"
+                    android:id="@+id/lieu_name" />
             </RelativeLayout>
 
         </LinearLayout>

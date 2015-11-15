@@ -3,6 +3,7 @@ package com.seb.hhd2k15 ;  // change to your own package
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -37,6 +38,8 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
     MapView mMapView;
     private GoogleMap googleMap;
+
+    final String NAME_LIEU = "name_lieu";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -136,6 +139,11 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+
+        Intent lieuIntent;
+        lieuIntent = new Intent(this.getContext(), LieuActivity.class);
+        lieuIntent.putExtra(NAME_LIEU, marker.getTitle());
+        startActivity(lieuIntent);
 
         Toast.makeText(this.getContext(), marker.getTitle(), Toast.LENGTH_SHORT).show();
         return true;
