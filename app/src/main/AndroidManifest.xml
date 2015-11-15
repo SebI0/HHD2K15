@@ -77,6 +77,10 @@
         <activity android:name=".LieuActivity">
 
         </activity>
+
+        <activity android:name=".UserPrefActivity">
+
+        </activity>
         <activity android:name=".UserCompteActivity" >
         </activity>
         <activity
