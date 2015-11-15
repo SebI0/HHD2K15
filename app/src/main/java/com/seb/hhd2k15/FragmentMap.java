@@ -58,8 +58,8 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
         // create marker
         MarkerOptions marker = new MarkerOptions().position(
-                new LatLng(latitude, longitude)).title("MA BITE");
-        MarkerOptions marker2 = new MarkerOptions().position(new LatLng(latitude2, longitude2)).title("Poudlard");
+                new LatLng(latitude, longitude)).title("MA BITE").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
+        MarkerOptions marker2 = new MarkerOptions().position(new LatLng(latitude2, longitude2)).title("Poudlard").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_v2));
 
 
         // Changing marker icon
@@ -105,12 +105,11 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        if (marker.getTitle() == "MA BITE") {
-            Toast.makeText(this.getContext(), "ELLE EST GROSSE", Toast.LENGTH_LONG).show();
-            return true;
-        }
-        return false;
+        Toast.makeText(this.getContext(), marker.getTitle(), Toast.LENGTH_LONG).show();
+        return true;
     }
+
+
 
     public void UpdateMapWithRequest(List<poi> liste){
 
