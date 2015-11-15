@@ -44,6 +44,7 @@ public class MyGcmListenerService extends GcmListenerService {
     @Override
     public void onMessageReceived(String from, Bundle data) {
         String message = data.getString("message");
+        String title = data.getString("title");
         Log.d(TAG, "From: " + from);
         Log.d(TAG, "Message: " + message);
 
@@ -65,7 +66,7 @@ public class MyGcmListenerService extends GcmListenerService {
          * In some cases it may be useful to show a notification indicating to the user
          * that a message was received.
          */
-        sendNotification(message);
+        sendNotification(title, message);
         // [END_EXCLUDE]
     }
     // [END receive_message]
@@ -75,7 +76,7 @@ public class MyGcmListenerService extends GcmListenerService {
      *
      * @param message GCM message received.
      */
-    private void sendNotification(String message) {
+    private void sendNotification(String title, String message) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
@@ -90,14 +91,19 @@ public class MyGcmListenerService extends GcmListenerService {
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);*/
 
-        Notification n = new Notification.Builder(this)
-                .setContentTitle("Instinct")
-                .setContentText(message)
-                .setSmallIcon(R.drawable.icon)
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true)
-                .addAction(R.drawable.cast_ic_notification_0, "Ignorer", pendingIntent)
-                .addAction(R.drawable.cast_ic_notification_1, "Y aller", pendingIntent).build();
+        // Constructs the Builder object.
+        Notification n =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.icon)
+                        .setContentTitle(title)
+                        .setContentText(message)
+                        .setDefaults(Notification.DEFAULT_ALL) // requires VIBRATE permission
+                        .setStyle(new NotificationCompat.BigTextStyle()
+                                .bigText(message))
+                        .addAction(R.drawable.cast_ic_notification_0, "Ignorer", pendingIntent)
+                        .addAction(R.drawable.cast_ic_notification_on, "Y aller", pendingIntent).build();
+
+
 
         n.sound = Uri.parse("android.resource://"
                 + this.getPackageName() + "/" + R.raw.sif);
