@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -21,7 +22,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import static com.seb.hhd2k15.metier.Api.getPoi;
 
@@ -90,14 +95,16 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
 
         // Changing marker icon
-       // marker.icon(BitmapDescriptorFactory
-                //.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+     /*   marker.icon(BitmapDescriptorFactory
+                .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));*/
 
 
         // adding marker
         //googleMap.addMarker(marker);
         googleMap.addMarker(marker2);
 
+
+        showMarker();
 
         // Perform any camera updates here
         return v;
@@ -129,13 +136,31 @@ public class FragmentMap extends Fragment implements GoogleMap.OnMarkerClickList
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        Toast.makeText(this.getContext(), marker.getTitle(), Toast.LENGTH_LONG).show();
+
+        Toast.makeText(this.getContext(), marker.getTitle(), Toast.LENGTH_SHORT).show();
         return true;
     }
 
 
+    public void showMarker()
+    {
+        poi p1 = new poi("Baie de la Canche", 50.549690, 1.617245);
+        poi p2 = new poi("Maréis", 50.518582, 1.630492);
+        poi p3 = new poi("Sentier près de la côte", 50.528537, 1.581504);
+        poi p4 = new poi("Happy H#cking Days", 50.519062, 1.592887);
 
-    public void UpdateMapWithRequest(List<poi> liste){
+
+        ArrayList<poi> poiList = new ArrayList<poi>();
+        poiList.add(p1);
+        poiList.add(p2);
+        poiList.add(p3);
+        poiList.add(p4);
+
+        UpdateMapWithRequest(poiList);
+    }
+
+
+    public void UpdateMapWithRequest(ArrayList<poi> liste){
 
         for(poi p : liste){
                 MarkerOptions m = new MarkerOptions().position(
